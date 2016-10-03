@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E682066C-DA5B-465D-BEA7-A791D8B40C85}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0A2BE9BC-B8F8-4815-AE86-1CFACF9D6819}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Justjack.Dashboard.Web", "src\Justjack.Dashboard.Web\Justjack.Dashboard.Web.xproj", "{F387FB2C-F891-4036-AC28-4ED269F35B66}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F387FB2C-F891-4036-AC28-4ED269F35B66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F387FB2C-F891-4036-AC28-4ED269F35B66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F387FB2C-F891-4036-AC28-4ED269F35B66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F387FB2C-F891-4036-AC28-4ED269F35B66}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F387FB2C-F891-4036-AC28-4ED269F35B66} = {E682066C-DA5B-465D-BEA7-A791D8B40C85}
+	EndGlobalSection
+EndGlobal
