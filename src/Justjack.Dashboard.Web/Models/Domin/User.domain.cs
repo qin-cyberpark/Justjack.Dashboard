@@ -32,6 +32,10 @@ namespace Justjack.Dashboard.Models
             {
                 msg = "Please check your entries and try again.";
                 return null;
+            }else if(!user.Password.Equals(password) || !user.LoginCode.Equals(username))
+            {
+                msg = "Please check your entries and try again.";
+                return null;
             }
             else if (!"manager".Equals(user.Type))
             {

@@ -32,11 +32,15 @@ namespace Justjack.Dashboard.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<IISOptions>(options =>
+            {
+                options.AutomaticAuthentication = true;
+            });
             // Add framework services.
             services.AddMvc();
 
             // Add db context
-            services.AddDbContext<JustjackContext>(option => 
+            services.AddDbContext<JustjackContext>(option =>
                 option.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
         }
 
@@ -45,6 +49,7 @@ namespace Justjack.Dashboard.Web
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
 
             if (env.IsDevelopment())
             {
@@ -55,6 +60,7 @@ namespace Justjack.Dashboard.Web
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
 
             //Authentication
             app.UseCookieAuthentication(new CookieAuthenticationOptions()

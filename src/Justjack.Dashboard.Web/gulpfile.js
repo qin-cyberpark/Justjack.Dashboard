@@ -14,12 +14,13 @@ var gulp = require("gulp"),
     babel = require('gulp-babel');
 
 var lessGroups = [{ src: "./build/less/AdminLTE.less", dest: "./wwwroot/css" },
-                  { src: "./build/less/skins/*.less", dest: "./wwwroot/css/skins" }];
+                  { src: "./build/less/skins/*.less", dest: "./wwwroot/css/skins" },
+                  { src: "./build/less/site/*.less", dest: "./wwwroot/css" }, ];
 
-var jsxGroups = [{ src: "./build/jsx/*.jsx", dest: "./wwwroot/js/" }];
-//                 { src: "./wwwroot/build/jsx/components/*.jsx", dest: "./wwwroot/js/components" }];
+var jsxGroups = [{ src: "./build/jsx/components/*.jsx", dest: "./wwwroot/js/components" },
+                { src: "./build/jsx/*.jsx", dest: "./wwwroot/js/" }];
 
-var jsGroups = [{ src: "./wwwroot/js/**/*.js", exclude: "./wwwroot/js/app.min.js", dest: "./wwwroot/js/app.min.js", isBundle: true }];
+var jsGroups = [{ src: "./wwwroot/js/**/*.js", exclude: "./wwwroot/js/*.min.js", dest: "./wwwroot/js/site.min.js", isBundle: true }];
 
 var cssGroups = [{ src: "./wwwroot/css/skins/*.css", exclude: "./wwwroot/css/skins/*.min.css", dest: "./wwwroot/css/skins/", isBundle: false },
                 { src: "./wwwroot/css/*.css", exclude: "./wwwroot/css/*.min.css", dest: "./wwwroot/css/site.min.css", isBundle: true }];
@@ -71,8 +72,8 @@ gulp.task("min:js", function () {
             files = files.pipe(rename({ dirname: grp.dest, suffix: '.min' }));
         }
 
-        files.pipe(uglify())
-        .pipe(gulp.dest("."));
+        //files.pipe(uglify())
+        files.pipe(gulp.dest("."));
     }
 });
 
@@ -91,5 +92,3 @@ gulp.task("min:css", function () {
         .pipe(gulp.dest("."));
     }
 });
-
-//gulp.task("min", ["min:js", "min:css"]);

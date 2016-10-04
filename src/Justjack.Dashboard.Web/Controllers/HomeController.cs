@@ -18,6 +18,11 @@ namespace Justjack.Dashboard.Web.Controllers
             _db = context;
         }
 
+        /// <summary>
+        /// login api
+        /// </summary>
+        /// <param name="vm"></param>
+        /// <returns></returns>
         public async Task<IActionResult> Login(LoginVM vm)
         {
             string msg;
@@ -46,15 +51,12 @@ namespace Justjack.Dashboard.Web.Controllers
             }
         }
 
-        [Authorize(Roles = "manager")]
+
+        //[Authorize(Roles = "manager")]
         public IActionResult Index()
         {
-
-            return View();
-        }
-
-        public IActionResult Error()
-        {
+            var orders = _db.Orders.Take(5).ToList();
+            var ps = _db.OrderProducts.Take(5).ToList();
             return View();
         }
     }
