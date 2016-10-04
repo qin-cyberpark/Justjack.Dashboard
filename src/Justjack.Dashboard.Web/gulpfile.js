@@ -13,12 +13,12 @@ var gulp = require("gulp"),
     rename = require('gulp-rename'),
     babel = require('gulp-babel');
 
-var lessGroups = [{ src: "./build/less/AdminLTE.less", dest: "./wwwroot/css" },
-                  { src: "./build/less/skins/*.less", dest: "./wwwroot/css/skins" },
-                  { src: "./build/less/site/*.less", dest: "./wwwroot/css" }, ];
+var lessGroups = [{ src: "./middle-files/less/AdminLTE.less", dest: "./wwwroot/css" },
+                  { src: "./middle-files/less/skins/*.less", dest: "./wwwroot/css/skins" },
+                  { src: "./middle-files/less/site/*.less", dest: "./wwwroot/css" }, ];
 
-var jsxGroups = [{ src: "./build/jsx/components/*.jsx", dest: "./wwwroot/js/components" },
-                { src: "./build/jsx/*.jsx", dest: "./wwwroot/js/" }];
+var jsxGroups = [{ src: "./middle-files/jsx/components/*.jsx", dest: "./wwwroot/js/components" },
+                { src: "./middle-files/jsx/*.jsx", dest: "./wwwroot/js/" }];
 
 var jsGroups = [{ src: "./wwwroot/js/**/*.js", exclude: "./wwwroot/js/*.min.js", dest: "./wwwroot/js/site.min.js", isBundle: true }];
 
