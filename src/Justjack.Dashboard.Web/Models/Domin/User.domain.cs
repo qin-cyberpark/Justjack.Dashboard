@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Cryptography;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 
 namespace Justjack.Dashboard.Models
 {
@@ -32,7 +33,8 @@ namespace Justjack.Dashboard.Models
             {
                 msg = "Please check your entries and try again.";
                 return null;
-            }else if(!user.Password.Equals(password) || !user.LoginCode.Equals(username))
+            }
+            else if (!user.Password.Equals(hasedPwd) || !user.LoginCode.Equals(username))
             {
                 msg = "Please check your entries and try again.";
                 return null;
@@ -47,6 +49,11 @@ namespace Justjack.Dashboard.Models
                 msg = "Succeed";
                 return user;
             }
+        }
+
+        public static User FindById(JustjackContext db,  string userId)
+        {
+            return db.Users.FirstOrDefault(x => x.LoginCode.Equals(userId));
         }
     }
 }

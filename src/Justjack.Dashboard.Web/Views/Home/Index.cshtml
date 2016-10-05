@@ -12,6 +12,7 @@
 
             var site = new SiteApp();
 
+            site.init();
             //binding
             $("#lnkDashboard").click(function () {
                 site.show("Dashboard");
@@ -22,9 +23,12 @@
             $("#lnkSellingSingle").click(function () {
                 site.show("SellingSingle");
             });
+            $("#btn-signout").click(function () {
+                site.signout();
+            });
 
             //init
-            site.show("SellingSingle");
+            site.show("Dashboard");
         });
     </script>
 }

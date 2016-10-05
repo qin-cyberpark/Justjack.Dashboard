@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var _user = (Justjack.Dashboard.Models.User)ViewData["User"];
+    var _displayName = string.IsNullOrEmpty(_user.Name) ? _user.LoginCode : _user.Name;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -52,22 +56,19 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="/images/avatar_unknown_120.png" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Qin Shen</span>
+                                <span class="hidden-xs">@_displayName</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
                                     <img src="/images/avatar_unknown_120.png" class="img-circle" alt="User Image">
                                     <p>
-                                        Qin Shen - Web Developer
-                                        <small>Member since Nov. 2012</small>
+                                        @_displayName - @_user.Type
+                                        <small>No. @_user.UserCode</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="text-center">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
+                                <li id="signout-bar" class="user-footer">
                                 </li>
                             </ul>
                         </li>
@@ -85,7 +86,7 @@
                         <img src="../images/avatar_unknown_120.png" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Qin Shen</p>
+                        <p>@_displayName</p>
                         <i class="fa fa-circle text-success"></i> Online
                     </div>
                 </div>
@@ -152,9 +153,13 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
     <!-- site script -->
     <script type="text/javascript" src="../js/site.min.js"></script>
+
+    <!-- global script -->
+   
     <!-- page script -->
     @RenderSection("scripts", required: false)
     <!-- AdminLTE App -->
     <script type="text/javascript" src="../js/app.min.js"></script>
+
 </body>
 </html>

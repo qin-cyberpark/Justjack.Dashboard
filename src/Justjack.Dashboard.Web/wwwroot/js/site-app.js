@@ -24,6 +24,14 @@ var SiteApp = function () {
         key: 'contractor',
         value: function contractor() {}
     }, {
+        key: 'init',
+        value: function init() {
+            ReactDOM.render(React.createElement(SignoutBar, null), document.getElementById('signout-bar'));
+        }
+
+        //show page
+
+    }, {
         key: 'show',
         value: function show(pageId) {
             pageId = pageId || "Login";
@@ -75,6 +83,9 @@ var SiteApp = function () {
                 React.createElement(SellingSingle, { id: 'selling-single' })
             ), document.getElementById('main-content'));
         }
+
+        //global
+
     }]);
 
     return SiteApp;

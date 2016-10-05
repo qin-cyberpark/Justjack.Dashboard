@@ -129,7 +129,7 @@ var SellingOverall = function (_React$Component) {
                                         { className: 'input-group-addon' },
                                         'To'
                                     ),
-                                    React.createElement('input', { className: 'form-control', type: 'date', value: this.state.dtTo, onChange: this.onDateFromChanged })
+                                    React.createElement('input', { className: 'form-control', type: 'date', value: this.state.dtTo, onChange: this.onDateToChanged })
                                 )
                             ),
                             React.createElement(

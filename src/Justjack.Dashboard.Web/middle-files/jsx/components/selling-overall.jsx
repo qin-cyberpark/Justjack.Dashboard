@@ -90,7 +90,7 @@
                                     <label className="input-group-addon">From</label>
                                     <input className="form-control" type="date" value={this.state.dtFrom} onChange={this.onDateFromChanged} />
                                     <label className="input-group-addon">To</label>
-                                    <input className="form-control" type="date" value={this.state.dtTo} onChange={this.onDateFromChanged} />
+                                    <input className="form-control" type="date" value={this.state.dtTo} onChange={this.onDateToChanged} />
                                 </div>
                             </div>
                             <div className="col-xs-2">

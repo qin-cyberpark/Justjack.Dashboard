@@ -8,5 +8,6 @@
 /// <reference path="js/components/selling-overall.js" />
 /// <reference path="js/components/selling-single.js" />
 /// <reference path="js/components/selling-table.js" />
+/// <reference path="js/components/signout-bar.js" />
 /// <reference path="js/site.min.js" />
 /// <reference path="js/site-app.js" />

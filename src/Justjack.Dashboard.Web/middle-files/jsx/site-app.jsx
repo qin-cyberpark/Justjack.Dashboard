@@ -13,6 +13,14 @@ class SiteApp {
     contractor() {
 
     }
+
+    init() {
+        ReactDOM.render(
+            <SignoutBar />,
+            document.getElementById('signout-bar'));
+    }
+
+    //show page
     show(pageId) {
         pageId = pageId || "Login";
         var fun = this["show" + pageId];
@@ -26,6 +34,7 @@ class SiteApp {
                   <LoginBar username={$("#username")} password={$("#password")} />,
                   document.getElementById('login-bar'));
     }
+
 
     //dashboard
     showDashboard() {
@@ -53,4 +62,7 @@ class SiteApp {
                   </MainContent>,
         document.getElementById('main-content'));
     }
+
+    //global
+
 }

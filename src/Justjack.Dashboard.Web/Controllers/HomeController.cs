@@ -23,6 +23,7 @@ namespace Justjack.Dashboard.Web.Controllers
         /// </summary>
         /// <param name="vm"></param>
         /// <returns></returns>
+        [HttpPost]
         public async Task<IActionResult> Login(LoginVM vm)
         {
             string msg;
@@ -37,9 +38,8 @@ namespace Justjack.Dashboard.Web.Controllers
             {
                 //set user
                 var identity = new ClaimsIdentity("password");
-                identity.AddClaim(new Claim(ClaimTypes.Sid, user.UserCode.ToString()));
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, user.LoginCode));
-                identity.AddClaim(new Claim(ClaimTypes.Name, user.Name));
+                identity.AddClaim(new Claim(ClaimTypes.Name, user.LoginCode));
                 identity.AddClaim(new Claim(ClaimTypes.Role, user.Type));
 
                 var pricipal = new ClaimsPrincipal(identity);
@@ -51,12 +51,22 @@ namespace Justjack.Dashboard.Web.Controllers
             }
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SignOut()
+        {
+            await HttpContext.Authentication.SignOutAsync("MyCookieMiddlewareInstance");
+            return new OkObjectResult(new ApiResult<string>(true) { Data = "/pages/login.html" });
+        }
 
-        //[Authorize(Roles = "manager")]
+        [Authorize(Roles = "manager")]
         public IActionResult Index()
         {
-            var orders = _db.Orders.Take(5).ToList();
-            var ps = _db.OrderProducts.Take(5).ToList();
+            var user = Models.User.FindById(_db, User.Identity.Name);
+            if (user == null)
+            {
+                Redirect("/pages/login.html");
+            }
+            ViewData["User"] = user;
             return View();
         }
     }
